@@ -124,7 +124,7 @@ function testDoPost() {
       'test@example.com',
       '090-1234-5678',
       'テスト会社',
-      'https://example.com/lp?utm_source=test&utm_medium=test'
+      'https://example.com/lp?utm_source=test&utm_medium=test&utm_campaign=test'
     ]
   };
   
