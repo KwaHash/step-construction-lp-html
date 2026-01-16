@@ -3,6 +3,10 @@ let currentStep = 1;
 const totalSteps = 7;
 let selectedOptions = {};
 
+// Capture URL parameters and referrer URL on page load
+const urlParams = new URLSearchParams(window.location.search);
+const referrerUrl = window.location.href; // Full URL with parameters
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
   showQuestion(currentStep);
@@ -372,7 +376,8 @@ async function handleCompletion() {
     formData?.name || '', // Name
     formData?.email || '', // Email
     formData?.phone || '', // Phone
-    formData?.company || '' // Company
+    formData?.company || '', // Company
+    referrerUrl.replace('index.html', 'thanks.html') || '' // Referrer URL with parameters, replacing index.html with thanks.html
   ];
 
   // Google Apps Script Web App URL
@@ -414,7 +419,13 @@ async function handleCompletion() {
     }
     
     if (result.success) {
-      window.location.href = '/thanks/index.html';
+      // Pass URL parameters to thank you page
+      const thankYouUrl = new URL('thanks.html', window.location.origin);
+      // Copy all URL parameters to thank you page
+      urlParams.forEach((value, key) => {
+        thankYouUrl.searchParams.append(key, value);
+      });
+      window.location.href = thankYouUrl.toString();
     } else {
       throw new Error(result.error || 'Unknown error');
     }
