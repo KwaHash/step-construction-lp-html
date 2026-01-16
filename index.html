@@ -9,6 +9,7 @@
     <meta name="robots" content="noodp" />
     <meta name="robots" content="noindex,nofollow" />
     <title>建築・不動産転職ナビ</title>
+    <link rel="icon" href="assets/img/favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
 	  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet" />
@@ -25,127 +26,138 @@
     </header>
 
     <main id="main">
-      <figure class="questionnaire-image">
-        <img src="assets/img/top.jpg" alt="建築・不動産転職ナビ" />
-      </figure>
+      <div class="questionnaire-image">
+        <img src="assets/img/top.png" alt="建築・不動産転職ナビ" />
+        <div class="image-overlay-text">
+          <h2 class="overlay-headline">建築業界に特化した<br />失敗しない転職サポート</h2>
+          <p class="overlay-message">今すぐ転職しなくても大丈夫です</p>
+          <div class="overlay-features">
+            <span class="feature-item">簡単30秒</span>
+            <span class="feature-item">登録だけでOK</span>
+            <span class="feature-item">相談無料</span>
+          </div>
+        </div>
+      </div>
       <div class="questionnaire-container">
-        <div class="progress-text">
-          STEP<span id="current-step">1</span>/全7問
-        </div>
-        <div class="progress-bar">
-          <div class="progress-segment filled"></div>
-          <div class="progress-segment"></div>
-          <div class="progress-segment"></div>
-          <div class="progress-segment"></div>
-          <div class="progress-segment"></div>
-          <div class="progress-segment"></div>
-          <div class="progress-segment"></div>
-        </div>
-  
-        <!-- Question 1 -->
-        <div class="question-step" data-step="1">
-          <h2 class="question-text">あなたの状況に一番近いものを選んでください</h2>
-          <div class="options-section">
-            <button class="option-btn" data-value="今すぐ転職したい">今すぐ転職したい</button>
-            <button class="option-btn" data-value="良い条件があれば検討したい">良い条件があれば検討したい</button>
-            <button class="option-btn" data-value="情報収集から始めたい">情報収集から始めたい</button>
-            <button class="option-btn" data-value="将来的に転職を考えている">将来的に転職を考えている</button>
+        <div class="questionnaire-wrapper">
+          <div class="progress-text">
+            STEP<span id="current-step">1</span>/全7問
           </div>
-        </div>
-  
-        <!-- Question 2 -->
-        <div class="question-step" data-step="2" style="display: none;">
-          <h2 class="question-text">転職で一番重視しているものは何ですか？</h2>
-          <div class="options-section">
-            <button class="option-btn" data-value="年収・待遇を上げたい">年収・待遇を上げたい</button>
-            <button class="option-btn" data-value="労働時間・働き方を改善したい">労働時間・働き方を改善したい</button>
-            <button class="option-btn" data-value="今の職場や人間関係に不満がある">今の職場や人間関係に不満がある</button>
-            <button class="option-btn" data-value="キャリア・将来性を見直したい">キャリア・将来性を見直したい</button>
+          <div class="progress-bar">
+            <div class="progress-segment filled"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
+            <div class="progress-segment"></div>
           </div>
-        </div>
-  
-        <!-- Question 3 -->
-        <div class="question-step" data-step="3" style="display: none;">
-          <h2 class="question-text">現在、または直近のご経験に近いものを選んでください</h2>
-          <div class="options-section three-columns">
-            <button class="option-btn" data-value="施工管理">施工管理</button>
-            <button class="option-btn" data-value="設計・設計監理">設計・設計監理</button>
-            <button class="option-btn" data-value="営業">営業</button>
-            <button class="option-btn" data-value="積算">積算</button>
-            <button class="option-btn" data-value="コンストラクション・マネージャー">コンストラクション・マネージャー</button>
-            <button class="option-btn" data-value="未経験">未経験</button>
-            <button class="option-btn" data-value="その他">その他</button>
-          </div>
-        </div>
-  
-        <!-- Question 4 -->
-        <div class="question-step" data-step="4" style="display: none;">
-          <h2 class="question-text">保有資格を教えてください</h2>
-          <div class="options-section three-columns">
-            <button class="option-btn" data-value="なし">なし</button>
-            <button class="option-btn" data-value="1級建築士">1級建築士</button>
-            <button class="option-btn" data-value="2級建築士">2級建築士</button>
-            <button class="option-btn" data-value="3級建築士">3級建築士</button>
-            <button class="option-btn" data-value="1級施工管理技師">1級施工管理技師</button>
-            <button class="option-btn" data-value="2級施工管理技師">2級施工管理技師</button>
-            <button class="option-btn" data-value="その他">その他</button>
-          </div>
-        </div>
-  
-        <!-- Question 5 -->
-        <div class="question-step" data-step="5" style="display: none;">
-          <h2 class="question-text">建築業界でのご経験はどれくらいですか？</h2>
-          <div class="options-section">
-            <button class="option-btn" data-value="1年未満">1年未満</button>
-            <button class="option-btn" data-value="1-3年">1-3年</button>
-            <button class="option-btn" data-value="4-9年">4-9年</button>
-            <button class="option-btn" data-value="10年以上">10年以上</button>
-            <button class="option-btn" data-value="未経験／異業種など">未経験／異業種など</button>
-          </div>
-        </div>
-  
-        <!-- Question 6 -->
-        <div class="question-step" data-step="6" style="display: none;">
-          <h2 class="question-text">現在の年収はどれくらいですか？</h2>
-          <div class="options-section">
-            <button class="option-btn" data-value="～500万">～500万</button>
-            <button class="option-btn" data-value="～800万">～800万</button>
-            <button class="option-btn" data-value="～1000万">～1000万</button>
-            <button class="option-btn" data-value="1000万～">1000万～</button>
-            <button class="option-btn" data-value="答えたくない">答えたくない</button>
-          </div>
-        </div>
-  
-        <!-- Question 7 -->
-        <div class="question-step" data-step="7" style="display: none;">
-          <h2 class="question-text">結果をお届けするための情報をご入力ください</h2>
-          <div class="form-section">
-            <div class="form-notes">
-              <small>しつこい営業はありません</small>
-              <small>建築業界に詳しい担当が対応します</small>
-            </div>
-            <div class="form-group">
-              <label for="name">お名前 <span class="required">必須</span></label>
-              <input type="text" id="name" name="name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">メールアドレス <span class="required">必須</span></label>
-              <input type="email" id="email" name="email" required />
-            </div>
-            <div class="form-group">
-              <label for="phone">電話番号 <span class="required">必須</span></label>
-              <input type="tel" id="phone" name="phone" required />
-            </div>
-            <div class="form-group">
-              <label for="company">所属企業（任意）</label>
-              <input type="text" id="company" name="company" />
+    
+          <!-- Question 1 -->
+          <div class="question-step" data-step="1">
+            <h2 class="question-text">あなたの状況に一番近いものを選んでください</h2>
+            <div class="options-section">
+              <button class="option-btn" data-value="今すぐ転職したい">今すぐ転職したい</button>
+              <button class="option-btn" data-value="良い条件があれば検討したい">良い条件があれば検討したい</button>
+              <button class="option-btn" data-value="情報収集から始めたい">情報収集から始めたい</button>
+              <button class="option-btn" data-value="将来的に転職を考えている">将来的に転職を考えている</button>
             </div>
           </div>
-        </div>
-  
-        <div class="navigation-section">
-          <button class="prev-btn" id="prev-btn" style="display: none;">戻る</button>
-          <button class="next-btn" id="next-btn" style="display: none;" disabled>次へ進む</button>
+    
+          <!-- Question 2 -->
+          <div class="question-step" data-step="2" style="display: none;">
+            <h2 class="question-text">転職で一番重視しているものは何ですか？</h2>
+            <div class="options-section">
+              <button class="option-btn" data-value="年収・待遇を上げたい">年収・待遇を上げたい</button>
+              <button class="option-btn" data-value="労働時間・働き方を改善したい">労働時間・働き方を改善したい</button>
+              <button class="option-btn" data-value="今の職場や人間関係に不満がある">今の職場や人間関係に不満がある</button>
+              <button class="option-btn" data-value="キャリア・将来性を見直したい">キャリア・将来性を見直したい</button>
+            </div>
+          </div>
+    
+          <!-- Question 3 -->
+          <div class="question-step" data-step="3" style="display: none;">
+            <h2 class="question-text">現在、または直近のご経験に近いものを選んでください</h2>
+            <div class="options-section three-columns">
+              <button class="option-btn" data-value="施工管理">施工管理</button>
+              <button class="option-btn" data-value="設計・設計監理">設計・設計監理</button>
+              <button class="option-btn" data-value="営業">営業</button>
+              <button class="option-btn" data-value="積算">積算</button>
+              <button class="option-btn" data-value="コンストラクション・マネージャー">コンストラクション・マネージャー</button>
+              <button class="option-btn" data-value="未経験">未経験</button>
+              <button class="option-btn" data-value="その他">その他</button>
+            </div>
+          </div>
+    
+          <!-- Question 4 -->
+          <div class="question-step" data-step="4" style="display: none;">
+            <h2 class="question-text">保有資格を教えてください</h2>
+            <div class="options-section three-columns">
+              <button class="option-btn" data-value="なし">なし</button>
+              <button class="option-btn" data-value="1級建築士">1級建築士</button>
+              <button class="option-btn" data-value="2級建築士">2級建築士</button>
+              <button class="option-btn" data-value="3級建築士">3級建築士</button>
+              <button class="option-btn" data-value="1級施工管理技師">1級施工管理技師</button>
+              <button class="option-btn" data-value="2級施工管理技師">2級施工管理技師</button>
+              <button class="option-btn" data-value="その他">その他</button>
+            </div>
+          </div>
+    
+          <!-- Question 5 -->
+          <div class="question-step" data-step="5" style="display: none;">
+            <h2 class="question-text">建築業界でのご経験はどれくらいですか？</h2>
+            <div class="options-section">
+              <button class="option-btn" data-value="1年未満">1年未満</button>
+              <button class="option-btn" data-value="1-3年">1-3年</button>
+              <button class="option-btn" data-value="4-9年">4-9年</button>
+              <button class="option-btn" data-value="10年以上">10年以上</button>
+              <button class="option-btn" data-value="未経験／異業種など">未経験／異業種など</button>
+            </div>
+          </div>
+    
+          <!-- Question 6 -->
+          <div class="question-step" data-step="6" style="display: none;">
+            <h2 class="question-text">現在の年収はどれくらいですか？</h2>
+            <div class="options-section">
+              <button class="option-btn" data-value="～500万">～500万</button>
+              <button class="option-btn" data-value="～800万">～800万</button>
+              <button class="option-btn" data-value="～1000万">～1000万</button>
+              <button class="option-btn" data-value="1000万～">1000万～</button>
+              <button class="option-btn" data-value="答えたくない">答えたくない</button>
+            </div>
+          </div>
+    
+          <!-- Question 7 -->
+          <div class="question-step" data-step="7" style="display: none;">
+            <h2 class="question-text">結果をお届けするための情報をご入力ください</h2>
+            <div class="form-section">
+              <div class="form-notes">
+                <small>しつこい営業はありません</small>
+                <small>建築業界に詳しい担当が対応します</small>
+              </div>
+              <div class="form-group">
+                <label for="name">お名前 <span class="required">必須</span></label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">メールアドレス <span class="required">必須</span></label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">電話番号 <span class="required">必須</span></label>
+                <input type="tel" id="phone" name="phone" required />
+              </div>
+              <div class="form-group">
+                <label for="company">所属企業（任意）</label>
+                <input type="text" id="company" name="company" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="navigation-section">
+            <button class="prev-btn" id="prev-btn" style="display: none;">戻る</button>
+            <button class="next-btn" id="next-btn" style="display: none;" disabled>次へ進む</button>
+          </div>
         </div>
       </div>
     </main>
