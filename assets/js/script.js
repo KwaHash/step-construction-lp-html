@@ -127,6 +127,7 @@ function initializeQuestionnaire() {
   
   // Show/hide previous button
   updatePreviousButtonVisibility();
+  // Update next button visibility and state
   updateNextButtonState();
   updateNextButtonText();
 }
@@ -183,6 +184,14 @@ function handleOptionSelect(button) {
   selectedOptions[currentStep] = button.dataset.value;
   
   updateNextButtonState();
+  
+  // Auto-advance to next step (except for step 7 which is the form)
+  if (currentStep < 7) {
+    // Small delay to show the selection before transitioning
+    setTimeout(() => {
+      handleNextStep();
+    }, 300);
+  }
 }
 
 function handleCheckboxChange() {
@@ -199,6 +208,14 @@ function handleCheckboxChange() {
   }
   
   updateNextButtonState();
+  
+  // Auto-advance to next step if at least one checkbox is selected (except for step 7)
+  if (currentStep < 7 && selectedValues.length > 0) {
+    // Small delay to show the selection before transitioning
+    setTimeout(() => {
+      handleNextStep();
+    }, 300);
+  }
 }
 
 function handleFormChange() {
@@ -226,20 +243,26 @@ function updateNextButtonState() {
   const currentQuestion = document.querySelector(`.question-step[data-step="${currentStep}"]`);
   if (!currentQuestion) return;
   
-  const hasCheckboxes = currentQuestion.querySelector('.checkbox-section');
-  const hasForm = currentQuestion.querySelector('.form-section');
-  
-  if (hasForm) {
-    const name = document.getElementById('name')?.value.trim();
-    const email = document.getElementById('email')?.value.trim();
-    const phone = document.getElementById('phone')?.value.trim();
-    nextButton.disabled = !(name && email && phone);
-  } else if (hasCheckboxes) {
-    const checked = currentQuestion.querySelectorAll('.checkbox-option input:checked');
-    nextButton.disabled = checked.length === 0;
+  // Only show next button on step 7 (form step)
+  if (currentStep === 7) {
+    nextButton.style.display = 'block';
+    const hasForm = currentQuestion.querySelector('.form-section');
+    
+    if (hasForm) {
+      const name = document.getElementById('name')?.value.trim();
+      const email = document.getElementById('email')?.value.trim();
+      const phone = document.getElementById('phone')?.value.trim();
+      nextButton.disabled = !(name && email && phone);
+    } else if (currentQuestion.querySelector('.checkbox-section')) {
+      const checked = currentQuestion.querySelectorAll('.checkbox-option input:checked');
+      nextButton.disabled = checked.length === 0;
+    } else {
+      const selected = currentQuestion.querySelector('.option-btn.selected');
+      nextButton.disabled = !selected;
+    }
   } else {
-    const selected = currentQuestion.querySelector('.option-btn.selected');
-    nextButton.disabled = !selected;
+    // Hide next button for steps 1-6
+    nextButton.style.display = 'none';
   }
 }
 
@@ -321,15 +344,17 @@ function updateProgress() {
   // Update previous button visibility
   updatePreviousButtonVisibility();
   
-  // Update next button text based on step
+  // Update next button visibility, state, and text
+  updateNextButtonState();
   updateNextButtonText();
 }
 
 function updateNextButtonText() {
   const nextButton = document.getElementById('next-btn');
   if (currentStep === 7) {
-    nextButton.textContent = 'お問い合わせ';
+    nextButton.textContent = '送信する';
   } else {
+    // Button is hidden for steps 1-6, but keep text for consistency
     nextButton.textContent = '次へ進む';
   }
 }
@@ -400,6 +425,6 @@ async function handleCompletion() {
     
     const nextButton = document.getElementById('next-btn');
     nextButton.disabled = false;
-    nextButton.textContent = 'お問い合わせ';
+    nextButton.textContent = '送信する';
   }
 }
