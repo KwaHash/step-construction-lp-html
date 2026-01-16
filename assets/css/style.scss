@@ -39,7 +39,170 @@ body {
     height: 100%;
     position: absolute;
     object-fit: cover;
-    object-position: center right;
+    object-position: right 25%;
+    @media (max-width: 992px) {
+      object-position: center right;
+    }
+  }
+}
+
+.image-overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 100px;
+  z-index: 1;
+  background: linear-gradient(to right, rgba(26, 58, 95, 0.7) 0%, rgba(26, 58, 95, 0.4) 50%, transparent 100%);
+
+  @media (max-width: 1200px) {
+    padding: 50px 60px;
+  }
+
+  @media (max-width: 992px) {
+    padding: 40px 40px;
+    background: linear-gradient(to right, rgba(26, 58, 95, 0.8) 0%, rgba(26, 58, 95, 0.5) 60%, transparent 100%);
+  }
+
+  @media (max-width: 640px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    background: linear-gradient(to right, rgba(26, 58, 95, 0.85) 0%, rgba(26, 58, 95, 0.6) 70%, transparent 100%);
+  }
+}
+
+.overlay-headline {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 60px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 1200px) {
+    font-size: 52px;
+  }
+
+  @media (max-width: 992px) {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 640px) {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 28px;
+  }
+}
+
+.overlay-subheadline {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.4;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 1200px) {
+    font-size: 28px;
+  }
+
+  @media (max-width: 992px) {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 18px;
+  }
+}
+
+.overlay-message {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 1200px) {
+    font-size: 26px;
+  }
+
+  @media (max-width: 992px) {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 16px;
+  }
+}
+
+.overlay-features {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @media (max-width: 992px) {
+    gap: 20px;
+  }
+
+  @media (max-width: 640px) {
+    gap: 16px;
+    align-items: flex-start;
+  }
+}
+
+.feature-item {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+
+  @media (max-width: 1200px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: 992px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 640px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 13px;
   }
 }
 
@@ -55,6 +218,14 @@ body {
   }
   @media (max-width: 992px) {
     margin: 40px auto;
+  }
+}
+
+.questionnaire-wrapper {
+  @media (max-width: 640px) {
+    background-color: #fff;
+    padding: 20px 16px;
+    border-radius: 20px;
   }
 }
 
@@ -75,6 +246,10 @@ body {
   background-color: #4a5f7a;
   transition: background-color 0.3s ease;
 
+  @media (max-width: 640px) {
+    background-color: #CCC;
+  }
+
   &.filled {
     background-color: #5dade2;
   }
@@ -92,10 +267,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: 600;
   color: #ffffff;
   font-size: 20px;
   letter-spacing: 1px;
   white-space: nowrap;
+
+  @media (max-width: 640px) {
+    font-size: 18px;
+    color: #000;
+  }
 }
 
 .question-step {
@@ -125,7 +306,8 @@ body {
   margin: 24px 0;
 
   @media (max-width: 640px) {
-    font-size: 22px;
+    color: #000;
+    font-size: 20px;
   }
 }
 
@@ -207,10 +389,19 @@ body {
   text-align: center;
   margin-bottom: 8px;
 
+  @media (max-width: 640px) {
+    gap: 4px;
+  }
+
   small {
     color: #ffffff;
     font-size: 14px;
     opacity: 0.8;
+
+    @media (max-width: 640px) {
+      color: #000;
+      font-size: 12px;
+    }
   }
 }
 
@@ -224,12 +415,24 @@ body {
     font-size: 16px;
     font-weight: 600;
 
+    @media (max-width: 640px) {
+      color: #000;
+      font-size: 14px;
+    }
+
     .required {
       background-color: #ff6b6b;
       margin-left: 4px;
       font-size: 12px;
       padding: 2px 4px;
       border-radius: 4px;
+
+      @media (max-width: 640px) {
+        font-size: 10px;
+        padding: 2px 4px;
+        border-radius: 4px;
+        color: #fff;
+      }
     }
   }
 
@@ -274,6 +477,8 @@ body {
   @media (max-width: 640px) {
     font-size: 16px;
     padding: 12px 16px;
+    border: 1px solid #000;
+    border-radius: 9999px;
   }
 
   &:hover {
@@ -318,7 +523,7 @@ body {
   @media (max-width: 640px) {
     font-size: 16px;
     padding: 12px 16px;
-    min-width: 170px;
+    min-width: 150px;
   }
 
   &:hover {
@@ -348,7 +553,7 @@ body {
   @media (max-width: 640px) {
     font-size: 16px;
     padding: 12px 16px;
-    min-width: 170px;
+    min-width: 150px;
   }
 
   &:hover:not(:disabled) {
@@ -543,16 +748,11 @@ body {
 
   .footer-nav {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     align-items: center;
 
     @media (max-width: 992px) {
-      gap: 16px;
-    }
-
-    @media (max-width: 640px) {
-      flex-wrap: wrap;
-      gap: 12px;
+      gap: 20px;
     }
   }
 
@@ -561,7 +761,10 @@ body {
     font-size: 14px;
     font-weight: 400;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.5s ease;
+    &:hover {
+      text-decoration: underline;
+    }
 
     @media (max-width: 640px) {
       font-size: 13px;
