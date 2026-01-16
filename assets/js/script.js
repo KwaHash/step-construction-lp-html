@@ -381,18 +381,18 @@ async function handleCompletion() {
   const formData = selectedOptions[7]; // Step 7 contains form data
   const thanksReferrerUrl = convertReferrerToThanksUrl(referrerUrl);
   const rowData = [
-    new Date().toLocaleString('ja-JP'), // Timestamp
+    formData?.name || '', // Name
+    formData?.email || '', // Email
+    formData?.phone || '', // Phone
+    formData?.company || '', // Company
     selectedOptions[1] || '', // Question 1
     selectedOptions[2] || '', // Question 2
     selectedOptions[3] || '', // Question 3
     selectedOptions[4] || '', // Question 4
     selectedOptions[5] || '', // Question 5
     selectedOptions[6] || '', // Question 6
-    formData?.name || '', // Name
-    formData?.email || '', // Email
-    formData?.phone || '', // Phone
-    formData?.company || '', // Company
-    thanksReferrerUrl // Referrer URL converted to thanks.html format with all parameters
+    thanksReferrerUrl, // Referrer URL converted to thanks.html format with all parameters
+    new Date().toLocaleString('ja-JP') // Timestamp
   ];
 
   // Google Apps Script Web App URL

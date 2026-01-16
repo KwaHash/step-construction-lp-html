@@ -72,18 +72,18 @@ function doPost(e) {
     }
     
     const headers = [
-      '送信日時',
+      'お名前',
+      'メールアドレス',
+      '電話番号',
+      '所属企業',
       'Q1: 状況',
       'Q2: 重視点',
       'Q3: 経験',
       'Q4: 資格',
       'Q5: 経験年数',
       'Q6: 年収',
-      'お名前',
-      'メールアドレス',
-      '電話番号',
-      '所属企業',
-      'リファラー'
+      'リファラー',
+      '送信日時'
     ];
     
     // Check if header row needs to be created or updated
