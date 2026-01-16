@@ -84,7 +84,8 @@ function doPost(e) {
         'お名前',
         'メールアドレス',
         '電話番号',
-        '所属企業'
+        '所属企業',
+        'リファラー'
       ];
       sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
       // Format header row
@@ -122,7 +123,8 @@ function testDoPost() {
       'テスト太郎',
       'test@example.com',
       '090-1234-5678',
-      'テスト会社'
+      'テスト会社',
+      'https://example.com/lp?utm_source=test&utm_medium=test&utm_campaign=test'
     ]
   };
   
