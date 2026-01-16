@@ -71,22 +71,43 @@ function doPost(e) {
       throw new Error('No data received');
     }
     
-    // If this is the first row, add headers
-    if (sheet.getLastRow() === 0) {
-      const headers = [
-        '送信日時',
-        'Q1: 状況',
-        'Q2: 重視点',
-        'Q3: 経験',
-        'Q4: 資格',
-        'Q5: 経験年数',
-        'Q6: 年収',
-        'お名前',
-        'メールアドレス',
-        '電話番号',
-        '所属企業',
-        'リファラー'
-      ];
+    const headers = [
+      '送信日時',
+      'Q1: 状況',
+      'Q2: 重視点',
+      'Q3: 経験',
+      'Q4: 資格',
+      'Q5: 経験年数',
+      'Q6: 年収',
+      'お名前',
+      'メールアドレス',
+      '電話番号',
+      '所属企業',
+      'リファラー'
+    ];
+    
+    // Check if header row needs to be created or updated
+    const lastRow = sheet.getLastRow();
+    let needsHeaderUpdate = false;
+    
+    if (lastRow === 0) {
+      // Sheet is empty, create headers
+      needsHeaderUpdate = true;
+    } else {
+      // Check if header row exists and has the correct last column
+      const lastColumn = sheet.getLastColumn();
+      if (lastColumn > 0) {
+        const lastHeaderCell = sheet.getRange(1, lastColumn).getValue();
+        // If last column is not "リファラー" or we don't have enough columns, update headers
+        if (lastHeaderCell !== 'リファラー' || lastColumn < headers.length) {
+          needsHeaderUpdate = true;
+        }
+      } else {
+        needsHeaderUpdate = true;
+      }
+    }
+    
+    if (needsHeaderUpdate) {
       sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
       // Format header row
       sheet.getRange(1, 1, 1, headers.length)
@@ -94,6 +115,7 @@ function doPost(e) {
         .setBackground('#5dade2')
         .setFontColor('#ffffff');
     }
+    
     sheet.appendRow(rowData);
     
     // CORS headers are automatically handled by Google Apps Script Web Apps

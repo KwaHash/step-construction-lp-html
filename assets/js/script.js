@@ -363,8 +363,23 @@ function updateNextButtonText() {
   }
 }
 
+// Convert referrer URL to thanks.html format while preserving query parameters
+function convertReferrerToThanksUrl(url) {
+  if (!url) return '';
+  try {
+    const urlObj = new URL(url);
+    // Set pathname to thanks.html (removes index.html or any other path)
+    urlObj.pathname = '/thanks.html';
+    return urlObj.toString();
+  } catch (error) {
+    // Fallback: simple string replacement if URL parsing fails
+    return url.replace(/\/?(index\.html)?(\?|$)/, '/thanks.html$2');
+  }
+}
+
 async function handleCompletion() {
   const formData = selectedOptions[7]; // Step 7 contains form data
+  const thanksReferrerUrl = convertReferrerToThanksUrl(referrerUrl);
   const rowData = [
     new Date().toLocaleString('ja-JP'), // Timestamp
     selectedOptions[1] || '', // Question 1
@@ -377,7 +392,7 @@ async function handleCompletion() {
     formData?.email || '', // Email
     formData?.phone || '', // Phone
     formData?.company || '', // Company
-    referrerUrl.replace('index.html', 'thanks.html') || '' // Referrer URL with parameters, replacing index.html with thanks.html
+    thanksReferrerUrl // Referrer URL converted to thanks.html format with all parameters
   ];
 
   // Google Apps Script Web App URL
@@ -396,7 +411,6 @@ async function handleCompletion() {
       method: 'POST',
       mode: 'cors',
       body: JSON.stringify({ data: rowData }),
-      redirect: 'follow'
     });
     
     const responseText = await response.text();
@@ -419,13 +433,8 @@ async function handleCompletion() {
     }
     
     if (result.success) {
-      // Pass URL parameters to thank you page
-      const thankYouUrl = new URL('thanks.html', window.location.origin);
-      // Copy all URL parameters to thank you page
-      urlParams.forEach((value, key) => {
-        thankYouUrl.searchParams.append(key, value);
-      });
-      window.location.href = thankYouUrl.toString();
+      // Use the converted thanks URL (already includes all query parameters)
+      window.location.href = thanksReferrerUrl || 'thanks.html';
     } else {
       throw new Error(result.error || 'Unknown error');
     }
